@@ -66,7 +66,7 @@ public class Main {
     //otherwise print the number itself.
     public static void fizzBuzzTrain(int fizzNumber, int buzzNumber) {
         for (int i = fizzNumber; i <= buzzNumber; i++) {
-            if (i % 3 == 0 & i % 5 == 0) { //почему двойное условие нужно наверх ? тут важен порядок ?
+            if (i % 3 == 0 && i % 5 == 0) { //почему двойное условие нужно наверх ? тут важен порядок ?
                 System.out.println(i + " = FizzBuzz");
             } else if (i % 3 == 0) {
                 System.out.println(i + " = Fizz");
