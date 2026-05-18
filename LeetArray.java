@@ -28,27 +28,36 @@ public class LeetArray {
 
     //Реализовать reverse массива. Было [1,2,5,5,6] Стало [6,5,5,2,1]
     public static int[] reverseArray(int[] array) {
-        int[] newArray = new int[array.length];
-        int length = array.length - 1;
-        for (int i = length; i >= 0; i--) {
-            newArray[length - i] = array[i];
+        int left = 0;
+        int right = array.length - 1;
+        while (left < right) {
+            int temp = array[left];
+            array[left] = array[right];
+            array[right] = temp;
+            left++;
+            right--;
         }
-        return newArray;
+        return array;
     }
 
     //Given an integer array nums, move all 0's to the end of it while maintaining
-    // the relative order of the non-zero elements.
+    //the relative order of the non-zero elements.
+    //тоже без доп памяти +
+    //1 0 0 3 12 через do while
     public static int[] nullEndArray(int[] array) {
-        int start = 0;
-        int[] nullEndArray = new int[array.length];
+       int start = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] != 0) {
-                nullEndArray[start] = array[i];
+                array[start] = array[i];
                 start++;
             }
-        } //я не понимаю почему это работает, в моем понимании должно было остаться 1, 3, 12
-        //почему нули переместились ?
-        return nullEndArray;
+        }
+
+        while (start < array.length) {
+            array[start] = 0;
+            start++;
+        }
+        return array;
     }
 
     //You are given an array prices where prices[i] is the price of a given stock on the ith day.
